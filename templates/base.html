@@ -1,4 +1,5 @@
-{% load static %} !<!DOCTYPE html>
+{% load static %}
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -27,13 +28,13 @@
   <body>
     <header>
       <div class="container container-fluid">
-        <div class="logo">
+        <a class="logo" href="{% url "index" %}">
           <i class="fa-brands fa-blogger"></i>
-        </div>
+        </a>
         <div class="links">
-          <a href="index.html">Home</a>
-          <a href="pages/blog.html">Blog</a>
-          <a href="pages/author.html">Author</a>
+          <a href="{% url "index" %}">Home</a>
+          <a href="{% url "about" %}">About</a>
+          <a href="">All Post</a>
         </div>
         <div class="action-btn">
           <a href="pages/login.html"
@@ -56,9 +57,9 @@
           <div class="link">
             <h2>Quick link</h2>
             <div class="q-link">
-              <a href="#">Home</a>
-              <a href="#">Blog</a>
-              <a href="#">Unsubscribe</a>
+              <a href="{% url "index" %}">Home</a>
+              <a href="{% url "about" %}">About</a>
+              <a href="#">All Post</a>
             </div>
           </div>
           <div class="link">
@@ -104,6 +105,6 @@
         </div>
       </div>
     </footer>
-    <script src="url.js" id="url"></script>
+    <script src="{% static "app/url.js" %}" id="url"></script>
   </body>
 </html>
