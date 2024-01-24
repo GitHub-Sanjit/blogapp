@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Blog | Welcome {% endblock title %}
+{% block title %} Blog | Welcome {% endblock title %}
 {% block content %}
     <main class="sp">
       <div class="container">
@@ -59,7 +59,7 @@
               {{featured_blog.title}}
             </h1>
             <p class="des">
-              {{featured_blog.content|truncatechars:200}}
+              {{featured_blog.content|safe|truncatechars:200}}
             </p>
             <a class="learn" href="#"
               >Learn more <span class="material-icons"> trending_flat </span></a
@@ -102,7 +102,7 @@
           {% endfor %}
         </div>
         <center>
-          <a href=""><button class="btn btn-primary rounded view">
+          <a href="{% url "all_posts" %}"><button class="btn btn-primary rounded view">
             View more <span class="material-icons"> trending_flat </span>
           </button></a>
         </center>
@@ -140,7 +140,7 @@
           {% endfor %}
         </div>
         <center>
-          <a href=""><button class="btn btn-primary rounded view">
+          <a href="{% url "all_posts" %}"><button class="btn btn-primary rounded view">
             View more <span class="material-icons"> trending_flat </span>
           </button></a>
         </center>
