@@ -77,11 +77,16 @@
         <div class="news-signup">
           <h2>Subscribe</h2>
           <div class="newsletter">
+            {% if request.session.subscribed == None %}
             <form method="POST">
-              <input type="email" name="email" maxlength="100" placeholder="Enter your email" required=""
-                id="id_email" />
+              {% csrf_token %}
+              {{subscribe_form}}
               <button class="btn btn-primary">Subscribe</button>
             </form>
+            {% endif %}
+            {% if subscribe_successful %}
+            <br><p>Subscribed Successfully.</p>
+            {% endif %}
           </div>
         </div>
       </div>
