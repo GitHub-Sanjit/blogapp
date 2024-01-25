@@ -147,5 +147,5 @@ DEFAULT_FROM_EMAIL = 'sanjit.est14@gmail.com'
 EMAIL_HOST_USER = os.environ.get('EMAIL')
 EMAIL_HOST_PASSWORD = os.environ.get('PASSWORD')
 
-print(os.environ.get('EMAIL'))
-print(os.environ.get('PASSWORD'))
+# print(os.environ.get('EMAIL'))
+# print(os.environ.get('PASSWORD'))
