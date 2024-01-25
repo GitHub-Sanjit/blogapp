@@ -1064,3 +1064,6 @@ main {
 .reply button {
   background: transparent;
 }
+.flex{
+  display: flex;
+}

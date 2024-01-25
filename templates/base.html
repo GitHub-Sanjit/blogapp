@@ -37,7 +37,7 @@
         <form action="{% url "logout" %}" method="post">
           {% csrf_token %}
         <a href="{% url "logout" %}"><button class="btn btn-scoundary">Logout</button></a>
-        </form>
+      </form>
         {% else %}
         <a href="{% url "login" %}"><button class="btn btn-scoundary">Login</button></a>
         <a href="{% url "register" %}">

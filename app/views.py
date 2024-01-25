@@ -3,7 +3,8 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.contrib.auth.models import User
 from django.db.models import Count
-from django.contrib.auth import login,logout
+from django.contrib.auth import login, logout, update_session_auth_hash
+from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm, SetPasswordForm
 
 from app.models import Post, Comments, Tag, Profile, WebsiteMeta
 from app.forms import CommentForm, SubscribeForm, NewUserForm
@@ -160,6 +161,38 @@ def register_user(request):
 def logout_user(request):
     logout(request)
     return redirect("login/")
+
+
+def pass_change(request):
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            form = PasswordChangeForm(user=request.user, data=request.POST)
+            if form.is_valid():
+                form.save()
+                # password update
+                update_session_auth_hash(request, form.user)
+                return redirect('profile')
+        else:
+            form = PasswordChangeForm(user=request.user)
+        return render(request, './passchange.html', {'form': form})
+    else:
+        return redirect('login')
+
+
+def change_password(request):
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            form = SetPasswordForm(user=request.user, data=request.POST)
+            if form.is_valid():
+                form.save()
+                # password update
+                update_session_auth_hash(request, form.user)
+                return redirect('/')
+        else:
+            form = SetPasswordForm(user=request.user)
+        return render(request, './change-password.html', {'form': form})
+    else:
+        return redirect('login')
 
 
 def bookmark_post(request, slug):
