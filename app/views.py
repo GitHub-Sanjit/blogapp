@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.contrib.auth.models import User
 from django.db.models import Count
-from django.contrib.auth import login
+from django.contrib.auth import login,logout
 
 from app.models import Post, Comments, Tag, Profile, WebsiteMeta
 from app.forms import CommentForm, SubscribeForm, NewUserForm
@@ -156,6 +156,10 @@ def register_user(request):
             return redirect("/")
     context = {'form': form}
     return render(request, 'registration/registration.html', context)
+
+def logout_user(request):
+    logout(request)
+    return redirect("login/")
 
 
 def bookmark_post(request, slug):
