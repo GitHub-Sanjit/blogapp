@@ -1,5 +1,6 @@
 asgiref
 Django
+django-environ
 pillow
 sqlparse
 typing_extensions
