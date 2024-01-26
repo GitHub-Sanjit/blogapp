@@ -252,7 +252,9 @@
                 <div class="card">
                   <div class="post-img">
                     <img src="{{ post.image.url|default_if_none:'#' }}" alt="" />
-                    <div class="tag">{{post.tags.all.0.name}}</div>
+                     {% for tag in post.tags.all %}
+                      <a href="{% url "tag_page" tag.slug %}" class="tag">{{tag.name}}</a>
+                    {% endfor %}
                   </div>
                   <div class="card-content">
                     <h3>
