@@ -277,6 +277,7 @@
             </div>
             <div class="block">
               <h2 class="title2">Top Author</h2>
+              {% if top_authors %}
               {% for author in top_authors %}
               <div class="recent-post">
                 <div class="rounded-img">
@@ -286,13 +287,17 @@
                   <h3>
                     {{author.first_name}}
                   </h3>
+                  {% if author.profile.slug %}
                   <a class="learn" href="{% url "author_page" author.profile.slug %}"
                     >Learn more
                     <span class="material-icons"> trending_flat </span></a
                   >
+                  {% else %}
+                  {% endif %}
                 </div>
               </div>
               {% endfor %}
+              {% endif %}
             </div>
             <div class="block">
               <h2 class="title2">Top Tags</h2>
