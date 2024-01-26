@@ -252,7 +252,7 @@
                 <div class="card">
                   <div class="post-img">
                     <img src="{{ post.image.url|default_if_none:'#' }}" alt="" />
-                    <div class="tag">Tag name</div>
+                    <div class="tag">{{post.tags.all.0.name}}</div>
                   </div>
                   <div class="card-content">
                     <h3>
