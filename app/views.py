@@ -43,6 +43,7 @@ def index(request):
 def post_page(request, slug):
     post = Post.objects.get(slug=slug)
     comments = Comments.objects.filter(post=post, parent=None)
+    print(len(comments))
     form = CommentForm()
 
     # Bookmark Logic
