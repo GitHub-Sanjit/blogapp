@@ -17,7 +17,7 @@ class CommentForm(forms.ModelForm):
         self.fields['content'].widget.attrs['placeholder'] = 'Type your comment'
         self.fields['email'].widget.attrs['placeholder'] = 'Email'
         self.fields['name'].widget.attrs['placeholder'] = 'Name'
-        self.fields['website'].widget.attrs['placeholder'] = 'Website(optional)'
+        self.fields['website'].widget.attrs['placeholder'] = 'Website'
 
 
 class SubscribeForm(forms.ModelForm):
