@@ -60,6 +60,11 @@ class Post(models.Model):
     def number_of_likes(self):
         return self.likes.count()
 
+    @property
+    def photo_url(self):
+        if self.photo and hasattr(self.photo, 'url'):
+            return self.photo.url
+
 
 class Comments(models.Model):
     content = models.TextField()
